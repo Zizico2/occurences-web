@@ -1,8 +1,6 @@
 "use client";
 import * as React from "react";
-import { APIProvider, Map as GMap, Marker } from "@vis.gl/react-google-maps";
-import { gql, useQuery } from "urql";
-import { PageContainer } from "@toolpad/core";
+import { Map as GMap, Marker } from "@vis.gl/react-google-maps";
 import type { Fires } from "../queries";
 
 export default function OMap({ fires }: { fires: Fires }) {

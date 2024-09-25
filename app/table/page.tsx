@@ -1,21 +1,14 @@
 export const runtime = "edge";
 import type * as React from "react";
 import DataGrid from "@/app/components/Datagrid";
-import { cacheExchange, createClient, fetchExchange } from "@urql/core";
+import { cacheExchange, createClient, fetchExchange } from "@urql/next";
 import { registerUrql } from "@urql/next/rsc";
 import type { DocumentInput } from "@urql/next";
 import type { ResultOf } from "gql.tada";
 import { graphql } from "@/graphql";
-import { Fires } from "../queries";
+import { Fires, getClient } from "../queries";
 
-const makeClient = () => {
-	return createClient({
-		url: "https://fires-gql-282262722329.us-west2.run.app",
-		exchanges: [cacheExchange, fetchExchange],
-	});
-};
 
-const { getClient } = registerUrql(makeClient);
 
 export default async function HomePage() {
 	const result = await getClient().query(Fires, {});
