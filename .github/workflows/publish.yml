@@ -9,7 +9,11 @@ jobs:
     name: Publish to Cloudflare Pages
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.2.0
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.0.1
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
       - name: Build
         run: npm run pages:build
       - name: Publish to Cloudflare Pages
