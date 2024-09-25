@@ -6,6 +6,7 @@ import { registerUrql } from "@urql/next/rsc";
 import type { DocumentInput } from "@urql/next";
 import type { ResultOf } from "gql.tada";
 import { graphql } from "@/graphql";
+import { Fires } from "../queries";
 
 const makeClient = () => {
 	return createClient({
@@ -16,23 +17,8 @@ const makeClient = () => {
 
 const { getClient } = registerUrql(makeClient);
 
-const fires = graphql(`
-  query Fires {
-    occurences {
-      nature
-      location {
-        latitude
-        longitude
-      }
-      groupedStatus
-      occurenceStatus
-    }
-  }`);
-
-export type Fires = ResultOf<typeof fires>;
-
 export default async function HomePage() {
-	const result = await getClient().query(fires, {});
+	const result = await getClient().query(Fires, {});
 	const { data, error } = result;
 	if (error) return <p>Oh no... {error.message}</p>;
 	if (!data) return <p>Loading...</p>;

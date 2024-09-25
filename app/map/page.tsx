@@ -7,6 +7,7 @@ import { cacheExchange, createClient, fetchExchange, gql } from "@urql/core";
 import { registerUrql } from "@urql/next/rsc";
 import { PageContainer } from "@toolpad/core";
 import { graphql, type ResultOf } from "@/graphql";
+import { Fires } from "../queries";
 
 interface EnvVars {
 	GOOGLE_MAPS_API_KEY: string;
@@ -25,23 +26,8 @@ const makeClient = () => {
 
 const { getClient } = registerUrql(makeClient);
 
-const fires = graphql(`
-  query Fires {
-    occurences {
-      nature
-      location {
-        latitude
-        longitude
-      }
-      groupedStatus
-      occurenceStatus
-    }
-  }`);
-
-export type Fires = ResultOf<typeof fires>;
-
 export default async function OrdersPage() {
-	const result = await getClient().query(fires, {});
+	const result = await getClient().query(Fires, {});
 	const { data, error } = result;
 
 	if (error) return <p>Oh no... {error.message}</p>;
