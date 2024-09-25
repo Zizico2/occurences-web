@@ -6,7 +6,7 @@ type Coordinates {
 enum GroupedStatus {
   ACTIVE
   CONCLUDING
-  DISPATCHd
+  DISPATCH
   RESOLUTION
 }
 
