@@ -3,7 +3,7 @@ import * as React from "react";
 import { APIProvider, Map as GMap, Marker } from "@vis.gl/react-google-maps";
 import { gql, useQuery } from "urql";
 import { PageContainer } from "@toolpad/core";
-import type { Fires } from "../map/page";
+import type { Fires } from "../queries";
 
 export default function OMap({ fires }: { fires: Fires }) {
 	const items = fires.occurences

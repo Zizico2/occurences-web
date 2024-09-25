@@ -9,7 +9,7 @@ import {
 } from "@mui/x-data-grid";
 import PlaceIcon from "@mui/icons-material/Place";
 import { IconButton } from "@mui/material";
-import type { Fires } from "../table/page";
+import type { Fires } from "../queries";
 
 const link: React.FC<GridRenderCellParams<GridValidRowModel, string>> = (
 	params,
