@@ -1,43 +1,40 @@
-
 type Coordinates {
-	latitude: Float!
-	longitude: Float!
+  latitude: Float!
+  longitude: Float!
 }
-
 
 enum GroupedStatus {
-	ACTIVE
-	CONCLUDING
-	DISPATCH
-	RESOLUTION
+  ACTIVE
+  CONCLUDING
+  DISPATCHd
+  RESOLUTION
 }
 
-
-
 type Occurence {
-	nature: String!
-	location: Coordinates!
-	groupedStatus: GroupedStatus!
-	occurenceStatus: OccurenceStatus!
+  nature: String!
+  location: Coordinates!
+  groupedStatus: GroupedStatus!
+  occurenceStatus: OccurenceStatus!
 }
 
 enum OccurenceStatus {
-	ACTIVE
-	INITIAL_DISPATCH
-	CONCLUDING
-	RESOLUTION
-	MONITORING
-	ARRIVAL_ON_SCENE
-	DISPATCH
+  ACTIVE
+  INITIAL_DISPATCH
+  CONCLUDING
+  RESOLUTION
+  MONITORING
+  ARRIVAL_ON_SCENE
+  DISPATCH
 }
 
 type QueryRoot {
-	occurences: [Occurence!]!
+  occurences: [Occurence!]!
 }
 
-
 directive @include(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+
 directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+
 schema {
-	query: QueryRoot
+  query: QueryRoot
 }

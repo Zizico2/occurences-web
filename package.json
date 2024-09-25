@@ -32,6 +32,7 @@
 		"@cloudflare/next-on-pages": "^1.13.3",
 		"@graphql-codegen/cli": "^5.0.2",
 		"@graphql-codegen/client-preset": "^4.3.3",
+		"@graphql-hive/cli": "^0.43.0",
 		"@types/gensync": "^1.0.4",
 		"@types/node": "^22.7.1",
 		"@types/react": "^18.3.9",
